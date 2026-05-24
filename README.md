@@ -1,16 +1,36 @@
 # AI-Powered 3D Segmentation of Lower Spinal Vertebrae
 
-Final Year Project (FYP) for automated 3D segmentation of lower spinal vertebrae from MRI scans using a custom **3D U-Net** built with TensorFlow/Keras.
+Official code repository for the paper:
+
+> **Segmentation Simplified: Lumbar Spine MRI Segmentation via a Tailored U-Net Architecture**  
+> Muhammad Hassan, Rehan Shafique, Asma Ahmad Farhan  
+> *Signal, Image and Video Processing* (SIViP), 2025  
+> [https://doi.org/10.1007/s11760-025-04175-8](https://link.springer.com/article/10.1007/s11760-025-04175-8)
+
+This repository contains the implementation of a simplified **3D U-Net** for automated lumbar spine MRI segmentation, developed as a Final Year Project (FYP) at the FAST School of Computing, National University of Computer and Emerging Sciences, Lahore, Pakistan.
+
+## Publication
+
+| | |
+|---|---|
+| **Title** | Segmentation Simplified: Lumbar Spine MRI Segmentation via a Tailored U-Net Architecture |
+| **Authors** | Muhammad Hassan, Rehan Shafique, Asma Ahmad Farhan |
+| **Journal** | Signal, Image and Video Processing (SIViP) |
+| **Published** | 28 May 2025 |
+| **DOI** | [10.1007/s11760-025-04175-8](https://doi.org/10.1007/s11760-025-04175-8) |
+| **Paper** | [Springer Nature Link](https://link.springer.com/article/10.1007/s11760-025-04175-8) |
+
+The paper proposes a tailored U-Net architecture that reduces model complexity while maintaining precise segmentation of lumbar spine MRI volumes — achieving a **94.7% Dice score** — making it suitable for settings with limited computational resources.
 
 ## Overview
 
-This repository provides notebooks to train and run inference with a 3D U-Net model on NIfTI (`.nii`) MRI volumes. Volumes are resized to `(32, 256, 256)` and normalized before being passed to the network. The model outputs a binary segmentation mask for lower spinal vertebrae.
+This repository provides notebooks to train and run inference with the tailored 3D U-Net on NIfTI (`.nii`) MRI volumes. Volumes are resized to `(32, 256, 256)` and normalized before being passed to the network. The model outputs a binary segmentation mask for lower spinal vertebrae.
 
 ### Model Architecture
 
 | Component | Details |
 |-----------|---------|
-| Architecture | 3D U-Net (3 encoder / 3 decoder levels) |
+| Architecture | Tailored 3D U-Net (3 encoder / 3 decoder levels) |
 | Input shape | `(32, 256, 256, 1)` |
 | Output | Binary mask `(32, 256, 256, 1)` with sigmoid activation |
 | Encoder filters | 64 → 128 → 256 |
@@ -62,7 +82,7 @@ For the training notebook on Kaggle, `gdown` is also used to fetch the preproces
 
 ### 1. Model Training (`Notebooks/Model Training.ipynb`)
 
-Trains the 3D U-Net on a preprocessed dataset stored as a pickle file.
+Trains the tailored 3D U-Net on a preprocessed dataset stored as a pickle file.
 
 **Workflow:**
 
@@ -133,6 +153,29 @@ Volumes are resized to `(32, 256, 256)` during preprocessing. The identifier `32
 5. Set `image_path` and `file_path` to your local paths.
 6. Run all cells — the output mask shape will be `(1, 32, 256, 256, 1)`.
 
+## Citation
+
+If you use this code or model in your research, please cite our paper:
+
+```bibtex
+@article{Hassan2025SegmentationSimplified,
+  title   = {Segmentation Simplified: Lumbar Spine MRI Segmentation via a Tailored U-Net Architecture},
+  author  = {Hassan, Muhammad and Shafique, Rehan and Ahmad Farhan, Asma},
+  journal = {Signal, Image and Video Processing},
+  volume  = {19},
+  pages   = {657},
+  year    = {2025},
+  doi     = {10.1007/s11760-025-04175-8},
+  url     = {https://link.springer.com/article/10.1007/s11760-025-04175-8}
+}
+```
+
+## Authors
+
+- **Muhammad Hassan** — FAST School of Computing, National University of Computer and Emerging Sciences, Lahore, Pakistan
+- **Rehan Shafique** — FAST School of Computing, National University of Computer and Emerging Sciences, Lahore, Pakistan
+- **Asma Ahmad Farhan** (Corresponding author) — FAST School of Computing, National University of Computer and Emerging Sciences, Lahore, Pakistan
+
 ## License
 
-This project was developed as a Final Year Project. Please contact the authors for usage terms.
+This project was developed as a Final Year Project and published in *Signal, Image and Video Processing*. Please contact the authors for usage terms.
